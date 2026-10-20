@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Demo</title>
+    <style>
+      body {
+        height: 100vh;
+        background-image: linear-gradient(
+          to right top,
+          #051937,
+          #004d7a,
+          #008793,
+          #00bf72,
+          #a8eb12
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3.2rem;
+      }
+      button {
+        border: none;
+        outline: none;
+        padding: 14px 45px;
+        border-radius: 50px; /* High radius creates the perfect pill shape */
+        min-width: 180px;
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+      }
+      #myButton {
+        background-color: #03112d; /* Very dark navy base */
+        color: #047eea; /* Bright blue text color displayed in image */
+        box-shadow: 0 8px 16px rgba(3, 17, 45, 0.4);
+      }
+      #myButton2 {
+        background-color: #92e30c; /* Vibrant lime green base */
+        color: #1e3a1e; /* Deep green text color for readable contrast */
+        box-shadow: 0 8px 16px rgba(11, 165, 170, 0.3);
+      }
+      #myButton {
+        box-shadow: 0 12px 20px rgba(3, 17, 45, 0.5);
+      }
+
+      #myButton2 {
+        box-shadow: 0 12px 20px rgba(11, 165, 170, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0); /* Return to normal position on click */
+      }
+      .copyCode {
+        /* Step 1: Reset default browser styles */
+        border: none;
+        outline: none;
+
+        /* Step 2: Shape and spacing */
+        padding: 14px 45px;
+        border-radius: 50px; /* Perfect pill shape matching your style */
+        min-width: 180px;
+
+        /* Step 3: Typography */
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(237, 228, 228); /* Clean white text pops over the gradient */
+        box-shadow: 0 8px 20px rgba(74, 50, 102, 0.35);
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+      }
+      .copyCode:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(74, 50, 102, 0.5);
+        opacity: 0.95;
+      }
+
+      /* Active State: Returns down when clicked */
+      .copyCode:active {
+        transform: translateY(0);
+        box-shadow: 0 6px 12px rgba(74, 50, 102, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <button id="myButton">#051937</button>
+        <button id="myButton2">#008793</button>
+      </div>
+      <h2>Copy your code here</h2>
+      <div class="copyCode">
+        background-image: linear-gradient (to right, rgb(92, 145, 229) ,
+        rgb(152, 63, 198))
+      </div>
+    </section>
+    <script>
+      let btn1 = document.getElementById("myButton");
+      let btn2 = document.getElementById("myButton2");
+      let copyDiv = document.querySelector(".copyCode");
+      let rgb1 = "#004773";
+      let rgb2 = "#54d542";
+
+      const allhexaValuess = () => {
+        let hexaValues = "0123456789abcdef";
+        let Colors = "#";
+        for (let i = 0; i < 6; i++) {
+          Colors = Colors + hexaValues[Math.floor(Math.random() * 16)];
+        }
+        return Colors;
+      };
+
+      const handleButton1 = () => {
+        rgb1 = allhexaValuess();
+        // console.log(rgb1);
+        btn1.innerText = rgb1;
+        document.body.style.backgroundImage = ` linear-gradient(to right, ${rgb1},${rgb2}`;
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1},${rgb2}`;
+      };
+      const handleButton2 = () => {
+        rgb2 = allhexaValuess();
+        // console.log(rgb2);
+        btn2.innerText = rgb2;
+        document.body.style.backgroundImage = ` linear-gradient(to right, ${rgb1}, ${rgb2}`;
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2}`;
+      };
+
+      btn1.addEventListener("click", handleButton1);
+      btn2.addEventListener("click", handleButton2);
+
+      copyDiv.addEventListener("click", () => {
+        navigator.clipboard.writeText(copyDiv.innerText);
+      });
+    </script>
+  </body>
+</html>

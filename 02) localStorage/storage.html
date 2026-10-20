@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage</title>
+    <style>
+      /* Centers the container perfectly in the middle of the screen */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #1a1a1a; Dark background matching your workspace */
+      }
+
+      /* Container for your buttons */
+      div {
+        display: flex;
+        gap: 20px; /* Puts comfortable spacing between the buttons */
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Allows wrapping seamlessly on small mobile screens */
+      }
+
+      /* Base button design shared by all three elements */
+      button {
+        /* Shape and Spacing */
+        padding: 14px 28px;
+        border-radius: 50px; /* Gives the rounded pill-shape */
+
+        /* Borders and Subtle Shadow Effects */
+        border: 1px solid rgba(0, 0, 0, 0.6);
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+
+        /* Typography */
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        color: #1e1e1e; /* Dark text for clean readability contrast */
+
+        /* Interactions */
+        cursor: pointer;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      /* Yellow Button (Add Data) matched to your ID */
+      #addBtn {
+        background-color: #f7e655;
+      }
+
+      /* Muted Green Button (Get Data) matched to your ID */
+      #getBtn {
+        background-color: #9bc091;
+      }
+
+      /* Coral Red Button (Remove Data) matched to your ID */
+      #removeBtn {
+        background-color: #ff6865;
+      }
+
+      /* --- Interactive States --- */
+      button:hover {
+        filter: brightness(1.05); /* Gently brightens the background color */
+        transform: translateY(-1px);
+        box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      button:active {
+        transform: translateY(1px);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="addBtn">Add Data to localStorage</button>
+      <button id="getBtn">Get Data from localStorage</button>
+      <button id="removeBtn">Remove Data from localStorage</button>
+    </div>
+    <script>
+      const studentBioData = {
+        firstName: "Adeel",
+        lastName: "Ahmad",
+        age: 20,
+        gender: "Male",
+        grade: "A",
+        courses: ["Math", "Science", "English"],
+        address: {
+          street: "123 Main Street",
+          city: "Cityvile",
+          state: "state",
+          zipCode: "12345",
+        },
+      };
+
+      // Add to localStorage;
+      const addTodoList = () => {
+        localStorage.setItem("objectData", JSON.stringify(studentBioData));
+      };
+
+      //Get from localStorage;
+      const getTodoList = () => {
+        const recievedData = JSON.parse(localStorage.getItem("objectData"));
+        console.log("Your Requested Data", recievedData);
+      };
+
+      // Remove from localstorage;
+      const removeTodoList = () => {
+        localStorage.removeItem("objectData");
+      };
+
+      document.getElementById("addBtn").addEventListener("click", () => {
+        addTodoList();
+      });
+      document.getElementById("getBtn").addEventListener("click", () => {
+        getTodoList();
+      });
+      document.getElementById("removeBtn").addEventListener("click", () => {
+        removeTodoList();
+      });
+    </script>
+  </body>
+</html>
