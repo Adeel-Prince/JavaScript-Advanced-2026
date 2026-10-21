@@ -1,0 +1,106 @@
+/* 1. Global Reset & Screen Centering */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a; /* Dark background matching your image */
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* 2. Container Layout */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* 3. Outer Clock Chassis with Yellow Framing Outline */
+.clockHolder {
+  background-color: #242b30; /* Dark slate finish of the inner chassis */
+  padding: 30px 45px;
+  border-radius: 12px;
+  border: 2px solid #f6f072; /* Sharp yellow framing outline */
+  position: relative;
+  min-width: 480px;
+
+  /* Ground reflection drop shadow under the container box */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 15px 30px rgba(246, 240, 114, 0.15);
+}
+
+/* Base Accent Plate under the clock frame */
+.clockHolder::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 15%;
+  right: 15%;
+  height: 6px;
+  background-color: #f6f072;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 15px rgba(246, 240, 114, 0.6);
+}
+
+/* 4. Core Layout Splitter (Navigation Left, Numbers Right) */
+.timeHolder {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+/* 5. Left Vertical Navigation Rail */
+.timeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 25px;
+}
+
+/* Styling the Custom SVG Vectors */
+.clock-icon {
+  width: 18px;
+  height: 18px;
+  fill: #a0aab2; /* Muted silver text color */
+  cursor: pointer;
+  transition:
+    fill 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Hover highlights vector variants in signature yellow */
+.clock-icon:hover {
+  fill: #f6f072;
+  transform: scale(1.1);
+}
+
+/* Distinct glowing treatment for the active option */
+.clock-icon.active {
+  fill: #f6f072;
+  filter: drop-shadow(0 0 4px rgba(246, 240, 114, 0.6));
+}
+
+/* 6. Clock Area Spacing Adjustment */
+.mainDiv {
+  flex-grow: 1;
+}
+
+/* 7. Thin Minimalist Digital Typography */
+#clock {
+  margin: 0;
+  padding: 0;
+  font-size: 64px;
+  font-weight: 300; /* Ultra-thin sleek weight matching your photo */
+  color: #ffffff; /* Bright high contrast text */
+  letter-spacing: 2px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums; /* Locks layout grid tracking */
+}
