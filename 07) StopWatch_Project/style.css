@@ -1,0 +1,98 @@
+/* 1. Global Reset & Screen Centering */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3b4252; /* Outer deep bluish-gray workspace background */
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* 2. Main Stopwatch Card Panel */
+section {
+  background-color: #242631; /* Dark slate card background from image */
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 320px;
+  min-height: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 3. The Large Pink Counter Typography */
+#countDown {
+  margin: 20px 0 40px 0;
+  font-size: 96px; /* Oversized counter numeral */
+  font-weight: 300;
+  color: #ff6584; /* Signature coral-pink color from image */
+  text-align: center;
+  line-height: 1;
+}
+
+/* 4. Two-Column Button Layout Wrapper */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* Forms a clean 2-column grid side-by-side */
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* 5. Custom Button Pill Sizing & Design Styles */
+button {
+  background-color: #ffffff; /* Bright white background */
+  color: #000; /* Dark text matching the image elements */
+  border: 1px solid #1a1a1a; /* Dark bounding border crisp outline */
+  padding: 12px 10px;
+  border-radius: 50px; /* Perfect soft rounded capsule edges */
+  font-size: 18px;
+  font-weight: 700px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Makes the standalone 'clearTime' button stretch full width across both columns */
+.clear_btn {
+  grid-column: span 2;
+}
+
+/* --- Interactive States --- */
+button:hover {
+  background-color: #f3f4f6; /* Subtle ash grey on cursor hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 6. Saved Time History Log (.resetValue) Styles */
+.resetValue {
+  width: 100%;
+  margin-top: 15px;
+  max-height: 120px;
+  overflow-y: auto; /* Adds a clean scroll bar if long log lists develop */
+  text-align: center;
+}
+
+/* Individual history records output inside container */
+.resetValue p {
+  color: #a0aab2;
+  font-size: 13px;
+  margin: 6px 0;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 6px;
+  border-radius: 6px;
+}
