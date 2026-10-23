@@ -1,0 +1,29 @@
+<!-- here we define how the call stack is work -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call Stack Working</title>
+  </head>
+  <body>
+    <script>
+      function firstFunction() {
+        console.log("First Function");
+        secondFunction();
+      }
+      function secondFunction() {
+        console.log("Second Function");
+        setTimeout(() => {
+          console.log("fun2 is started");
+        }, 3000);
+        thirdFunction();
+      }
+      function thirdFunction() {
+        console.log("Third Function");
+      }
+      firstFunction();
+    </script>
+  </body>
+</html>
