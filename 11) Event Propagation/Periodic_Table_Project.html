@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preodic Table-Project</title>
+    <link rel="stylesheet" href="PeriodicStyle.css" />
+  </head>
+  <body>
+    <h1>Event Delegation - Periodic Table</h1>
+    <section class="mainBody"></section>
+    <script>
+      // function to create Periodic Table;
+      const createPreodicElements = (symbol, atomicNumber, name) => {
+        const element = document.createElement("div");
+        element.classList.add("element");
+        element.innerHTML = symbol;
+        element.setAttribute("data-atomic-number", atomicNumber);
+        element.setAttribute("data-element-name", name);
+
+        return element;
+      };
+
+      // handle event for Periodic Table;
+      const handleElementClick = (event) => {
+        const target = event.target;
+        if (target.classList.contains("element")) {
+          const atomicNumber = target.getAttribute("data-atomic-number");
+          const elementName = target.getAttribute("data-element-name");
+          alert(
+            `Atomic Number: ${atomicNumber}\nEelement Name: ${elementName}`,
+          );
+        }
+      };
+      // Initialize Function for Periodic Table;
+      function initializePreodicTable() {
+        const mainBody = document.querySelector(".mainBody");
+
+        // create 50 Periodic Table elements;
+        for (let i = 1; i <= 50; i++) {
+          const element = createPreodicElements(`Elem${i}`, i, `Element ${i}`);
+          mainBody.append(element);
+        }
+
+        // Add event Delegation on the Container;
+        mainBody.addEventListener("click", handleElementClick);
+      }
+
+      initializePreodicTable();
+    </script>
+  </body>
+</html>

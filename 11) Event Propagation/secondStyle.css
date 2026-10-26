@@ -1,0 +1,108 @@
+/* 1. Global Reset & Vertical Column Layout */
+body {
+  margin: 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stacks items vertically from top to bottom */
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a; /* Clean dark theme background */
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #ffffff; /* White base text */
+}
+
+/* 2. Header Question Text Styling */
+body > p:first-of-type {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 25px 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Remove break elements to maintain clean padding control */
+br {
+  display: none;
+}
+
+/* 3. The Interactive List Box Container (#myList) */
+#myList {
+  list-style: none; /* Removes default bullet points */
+  padding: 0;
+  margin: 0 0 35px 0;
+  width: 100%;
+  max-width: 320px; /* Locks button box width to look exactly like your card */
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Space between each button option */
+}
+
+/* 4. Individual Selection Rows (The List Boxes) */
+#myList li {
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Clean thin border frame */
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hover highlights */
+#myList li:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 5. Custom Emojis Added to Button Sides */
+#myList li:nth-child(1)::before,
+#myList li:nth-child(1)::after {
+  content: "🎉";
+}
+#myList li:nth-child(2)::before,
+#myList li:nth-child(2)::after {
+  content: "🎈";
+}
+#myList li:nth-child(3)::before,
+#myList li:nth-child(3)::after {
+  content: "🙌";
+}
+#myList li:nth-child(4)::before,
+#myList li:nth-child(4)::after {
+  content: "🎁";
+}
+
+/* 6. Dynamic Result Output Paragraph (#listValue) */
+#listValue {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  margin: 10px 0 0 0;
+  color: #fff677; /* Highlight answer color in signature yellow */
+}
+
+/* Recreates the intro text safely without code overlap errors */
+#listValue::before {
+  content: "You fav programming language is: ";
+  color: #ffffff;
+  margin-right: 5px;
+}
+
+/* 7. Strict Protection Filter - Completely hides code strings and browser injected scripts */
+script,
+noscript,
+style {
+  display: none !important;
+}

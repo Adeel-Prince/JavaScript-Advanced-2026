@@ -1,0 +1,76 @@
+/* 1. Global Reset & Screen Centering */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a; /* Dark presentation canvas wrapper */
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* 2. Outer Container Layer (The Green Box) */
+#outer {
+  background-color: #8cd14e; /* Signature light lime green */
+  width: 700px;
+  height: 500px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. Middle Container Layer (The Purple Box) */
+#middle {
+  background-color: #a366ff; /* Clean purple background */
+  width: 80%;
+  height: 75%;
+  box-sizing: border-box;
+  border: 4px solid #1c1c1c; /* Sharp heavy black border lines */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 4. Inner Target Element Layer (The Red Box) */
+#inner {
+  background-color: #e54273; /* Vibrant coral red/pink background */
+  width: 70%;
+  height: 65%;
+  box-sizing: border-box;
+  border: 4px solid #1c1c1c; /* Heavy black border lines */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 5. Typography Label Alignment formatting */
+.label {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1c1c1c;
+  letter-spacing: 0.5px;
+  pointer-events: none; /* Prevents text from blocking click events */
+}
+
+/* Centers the text label directly inside the final innermost box */
+#inner .label {
+  position: static;
+}
+
+/* --- Interactive Hover Effects --- */
+#outer:hover,
+#middle:hover,
+#inner:hover {
+  filter: brightness(1.03); /* Soft visual glow feedback when hovering layers */
+  cursor: pointer;
+}

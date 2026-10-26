@@ -1,0 +1,67 @@
+/* 1. Global Reset & Body Centering Layout */
+body {
+  margin: 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #121214; /* Deep dark slate-black background */
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: #ffffff; /* White title text */
+}
+
+/* 2. Main Header Title Layout */
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* 3. The Grid Container Frame (.mainBody) */
+.mainBody {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr); /* 15 uniform columns per row */
+  gap: 15px; /* Spaces out grid item boundaries */
+  width: 100%;
+  max-width: 1400px; /* Limits scale width over ultra-wide monitors */
+  padding: 10px;
+}
+
+/* 4. Individual Dynamic Item Boxes (.element) */
+.element {
+  background-color: #1e1e24; /* Dark gray inner tile fill */
+  border: 1px solid #ff4a75; /* Default coral-red outline border layout */
+  border-radius: 8px; /* Smooth rounded corners matching your image */
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 400;
+  color: #e2e2e8; /* Soft white label string formatting */
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 5. Hover Feedback Highlight State */
+.element:hover {
+  background-color: #ff4a75; /* Fills item with signature coral pink on hover */
+  color: #121214; /* Swaps font dark for clean reading contrast */
+  transform: translateY(-2px); /* Subtle physical floating effect */
+  box-shadow: 0 8px 16px rgba(255, 74, 117, 0.3); /* Soft pink neon aura glow */
+}
+
+/* 6. Centering Rule For Overflown Final Row Items (Elements 46-50) */
+/* This shifts the remaining elements on row 4 to begin at column index 6 */
+.element:nth-child(46) {
+  grid-column-start: 6;
+}

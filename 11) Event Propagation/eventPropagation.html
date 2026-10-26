@@ -1,0 +1,88 @@
+<!-- // Event Propagation
+
+// Event propagation refers to the process of how events
+// propagate or travel through the DOM (Document Object
+// Model) hierarchy.
+
+// In JavaScript, there are two phases of event propagation:
+// capturing phase and bubbling phase.
+
+// Capturing Phase:
+// The event starts from the root of the DOM and goes down to the
+// target element.
+
+// Target Phase:
+// The event reaches the target element.
+
+// Bubbling Phase:
+// The events starts from the target element to bubbles up to the root of the DOM. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Propagation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="outer">
+      <!-- Green Box Area -->
+      <span class="label">Outer</span>
+
+      <div id="middle">
+        <!-- Purple Box Area -->
+        <span class="label">Middle</span>
+
+        <div id="inner">
+          <!-- Red Box Area -->
+          <span class="label">Inner</span>
+        </div>
+      </div>
+    </section>
+    <script>
+      const callOuter = (event) => {
+        console.table([
+          {
+            Description: "I am the Outer One.",
+            Target: event.target,
+            CurrentTarget: event.currentTarget,
+          },
+        ]);
+      };
+      const callMiddle = () => {
+        console.table([
+          {
+            Description: "I am the Middle One.",
+            Target: event.target,
+            CurrentTarget: event.currentTarget,
+          },
+        ]);
+      };
+      const callInner = (event) => {
+        console.table([
+          {
+            Description: "I am the Inner One.",
+            Target: event.target,
+            CurrentTarget: event.currentTarget,
+          },
+        ]);
+        // event.stopPropagation();
+      };
+      // Bubbling Phase; // Deafult Bottom to Top;
+      // document.getElementById("outer").addEventListener("click", callOuter);
+      // document.getElementById("inner").addEventListener("click", callInner);
+      // document.getElementById("middle").addEventListener("click", callMiddle);
+
+      // now we use Captring Phase; Top to Bottom;
+      document
+        .getElementById("outer")
+        .addEventListener("click", callOuter, true);
+      document
+        .getElementById("inner")
+        .addEventListener("click", callInner, true);
+      document
+        .getElementById("middle")
+        .addEventListener("click", callMiddle, true);
+    </script>
+  </body>
+</html>
