@@ -8,7 +8,7 @@
 // Function decleration;
 function sayHello(name) {
   return "Hello," + name + "!";
-};
+}
 
 var greetFunction = sayHello();
 console.log(greetFunction("Adeel"));
