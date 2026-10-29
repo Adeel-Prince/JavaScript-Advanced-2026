@@ -1,0 +1,8 @@
+# 📦 Dependency Logs & Backends
+node_modules/
+package-lock.json
+
+# 🛠️ System/IDE Clutter
+.vscode/
+.DS_Store
+Thumbs.db
